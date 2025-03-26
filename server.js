@@ -3,6 +3,7 @@ import { DataBaseMemory } from './database-memory.js';
 
 const server = fastify()
 const database = new DataBaseMemory()
+const port = process.env.PORT || 3332;
 
 server.post("/comments", (request, response)=> {
     const { descricao } = request.body
@@ -27,6 +28,6 @@ server.put("/comments/:id", (request, response)=> {
     return response.status(200).send()
 })
 
-server.listen({
-    port:3332
-})
+server.listen(port, '0.0.0.0', () => {
+    console.log(`🚀 Servidor rodando na porta ${port}`);
+});
