@@ -1,16 +1,16 @@
-# Use uma imagem base com Node.js
-FROM node:lts-alpine
+# Usa uma imagem oficial do Node.js como base
+FROM node:20-alpine
 
 # Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
-# Copia os arquivos do projeto para dentro do contêiner
+# Copia apenas os arquivos de dependências primeiro para aproveitar o cache do Docker
 COPY package.json package-lock.json ./
 
-# Instala as dependências
-RUN npm install
+# Instala as dependências sem criar arquivos desnecessários
+RUN npm install --production
 
-# Copia o restante do código do aplicativo
+# Agora copia o restante dos arquivos
 COPY . .
 
 # Expõe a porta do servidor
