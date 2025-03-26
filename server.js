@@ -43,5 +43,5 @@ server.delete("/videos/:id", (request, response)=> {
 })
 
 server.listen({
-    port:3333
+    port:3332
 })
