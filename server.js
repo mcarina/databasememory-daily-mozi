@@ -8,9 +8,9 @@ const port = process.env.PORT || 3332;
 server.post("/comments", (request, response)=> {
     const { descricao } = request.body
 
-    database.create({ descricao })
+    const newComment = database.create({ descricao });
 
-    return response.status(201).send()
+    return response.status(201).send(newComment);
 })  
 
 server.get("/comments", (request) => {

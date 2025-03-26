@@ -5,20 +5,20 @@ Content-Type: application/json
     "descricao": "Esse é o video 01"
 }
 
- ###
+#  ###
  
- GET http://localhost:3332/comments?search=node
+#  GET http://localhost:3332/comments?search=node
  
- ###
+#  ###
  
- PUT http://localhost:3332/comments/7ea3379f-ff24-491c-8ce2-9055c98d40f2
- Content-Type: application/json
+#  PUT http://localhost:3332/comments/7ea3379f-ff24-491c-8ce2-9055c98d40f2
+#  Content-Type: application/json
  
- {
-     "descricao": "atualizando comentario"
- }
+#  {
+#      "descricao": "atualizando comentario"
+#  }
  
- ###
+#  ###
  
- DELETE  http://localhost:3332/videos/1cea80e7-4a28-4fa2-bdab-97a5eb31c90a
- Content-Type: application/json
+#  DELETE  http://localhost:3332/videos/1cea80e7-4a28-4fa2-bdab-97a5eb31c90a
+#  Content-Type: application/json

@@ -17,8 +17,8 @@ export class DataBaseMemory{
 
     create(comment){
         const commentId = randomUUID();
-
-        this.#comments.set(commentId, comment)
+        this.#comments.set(commentId, { id: commentId, ...comment });
+        return { id: commentId, ...comment };
     }
 
     update(id, comment){
