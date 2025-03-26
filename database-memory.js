@@ -1,33 +1,28 @@
 import { randomUUID } from "node:crypto"
 
 export class DataBaseMemory{
-    #comment = new Map()
+    #comments = new Map()
 
-    list(search){
-        return Array.from(this.#comment.entries()).map((videoArray)=>{
-            const id = videoArray[0]
-            const data = videoArray[1]
-
-            return{
-                id, ...data,
-            }
-        })
-        .filter(video =>{
-            if (search){
-                return video.titulo.includes(search)
+    list(search) {
+        return Array.from(this.#comments.entries()).map(([id, data]) => ({
+            id, ...data
+        })).filter(comment => {
+            if (search) {
+                return comment.descricao && comment.descricao.includes(search)
             }
             return true
         })
     }
+    
 
-    create(video){
-        const videoId = randomUUID();
+    create(comment){
+        const commentId = randomUUID();
 
-        this.#comment.set(videoId, video)
+        this.#comments.set(commentId, comment)
     }
 
-    update(id, video){
-        this.#comment.set(id, video)
+    update(id, comment){
+        this.#comments.set(id, comment)
     }
 
 } 
