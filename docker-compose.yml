@@ -5,6 +5,7 @@ services:
       - "3333:3333"
     volumes:
       - .:/app
+      - /app/node_modules  # Garante que os módulos instalados dentro do contêiner não sejam sobrescritos
     environment:
       - NODE_ENV=production
     command: npm start

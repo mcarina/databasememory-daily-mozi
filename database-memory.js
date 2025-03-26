@@ -1,10 +1,10 @@
 import { randomUUID } from "node:crypto"
 
 export class DataBaseMemory{
-    #videos = new Map()
+    #comment = new Map()
 
     list(search){
-        return Array.from(this.#videos.entries()).map((videoArray)=>{
+        return Array.from(this.#comment.entries()).map((videoArray)=>{
             const id = videoArray[0]
             const data = videoArray[1]
 
@@ -23,16 +23,11 @@ export class DataBaseMemory{
     create(video){
         const videoId = randomUUID();
 
-        this.#videos.set(videoId, video)
+        this.#comment.set(videoId, video)
     }
 
     update(id, video){
-        this.#videos.set(id, video)
+        this.#comment.set(id, video)
     }
 
-    delete(id){
-        this.#videos.set(id)
-    }
-
-}
- 
+} 

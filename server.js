@@ -4,7 +4,7 @@ import { DataBaseMemory } from './database-memory.js';
 const server = fastify()
 const database = new DataBaseMemory()
 
-server.post("/videos", (request, response)=> {
+server.post("/comment", (request, response)=> {
     const { titulo, descricao, duration } = request.body
 
     database.create({
@@ -16,7 +16,7 @@ server.post("/videos", (request, response)=> {
     return response.status(201).send()
 })  
 
-server.get("/videos", (request)=> {
+server.get("/comment", (request)=> {
     const search = request.query.search
     console.log(search)
 
@@ -24,7 +24,7 @@ server.get("/videos", (request)=> {
     return videos
 })
 
-server.put("/videos/:id", (request, response)=> {
+server.put("/comment/:id", (request, response)=> {
     const videoId = request.params.id
     const { titulo, descricao, duration } = request.body
 
@@ -34,12 +34,6 @@ server.put("/videos/:id", (request, response)=> {
         duration,
     })
     return response.status(200).send()
-})
-
-server.delete("/videos/:id", (request, response)=> {
-    const videoId = request.params.id
-    database.delete(videoId)
-    return response.status(204).send()
 })
 
 server.listen({
