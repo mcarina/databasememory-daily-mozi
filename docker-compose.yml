@@ -1,17 +1,10 @@
 services:
   app:
     build: .
-    container_name: database-memory
     ports:
       - "3333:3333"
     volumes:
       - .:/app
     environment:
-      - NODE_ENV=development
-    restart: always
-    networks:
-      - database-memory-ntw
-
-networks:
-  database-memory-ntw:
-    driver: bridge
+      - NODE_ENV=production
+    command: npm start

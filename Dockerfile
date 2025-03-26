@@ -1,20 +1,20 @@
 # Use uma imagem base com Node.js
 FROM node:lts-alpine
 
-# Defina o diretório de trabalho dentro do container
+# Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
-# Copie o package.json e package-lock.json para o container
-COPY package*.json ./
+# Copia os arquivos do projeto para dentro do contêiner
+COPY package.json package-lock.json ./
 
-# Instale as dependências do projeto
+# Instala as dependências
 RUN npm install
 
-# Copie todos os arquivos do projeto para dentro do container
+# Copia o restante do código do aplicativo
 COPY . .
 
-# Expõe a porta que o app vai rodar
+# Expõe a porta do servidor
 EXPOSE 3333
 
-# Comando para rodar a aplicação
+# Comando para iniciar o servidor
 CMD ["npm", "start"]
