@@ -1,9 +1,9 @@
-POST http://localhost:3332/comments
-Content-Type: application/json
+# POST http://localhost:3332/comments
+# Content-Type: application/json
 
-{
-    "descricao": "Esse é o video 01"
-}
+# {
+#     "descricao": "Esse é o video 01"
+# }
 
 #  ###
  
@@ -22,3 +22,15 @@ Content-Type: application/json
  
 #  DELETE  http://localhost:3332/videos/1cea80e7-4a28-4fa2-bdab-97a5eb31c90a
 #  Content-Type: application/json
+
+# ###
+
+POST http://localhost:3332/choice-option
+Content-Type: application/json
+
+{
+    "color": "#ffff",
+    "favorite": true
+}
+
+#  GET http://localhost:3332/choice

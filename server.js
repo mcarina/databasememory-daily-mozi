@@ -19,13 +19,25 @@ server.get("/comments", (request) => {
     return comments
 })
 
-
 server.put("/comments/:id", (request, response)=> {
     const commentId = request.params.id
     const { descricao } = request.body
 
     database.update(commentId,{ descricao })
     return response.status(200).send()
+})
+
+// =============== estado escolhido pelo usuário =======================
+server.post("/choice-option", (request, response) => {
+    const { color, favorite } = request.body;
+    const choiceOption = database.create({ color, favorite });
+    return response.status(201).send(choiceOption);
+})
+
+server.get("/choice", (request)=>{
+    const search = request.query.search;
+    const choices = database.list(search);
+    return choices;
 })
 
 server.listen(port, '0.0.0.0', () => {

@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto"
+import { randomUUID } from "node:crypto";
 
 export class DataBaseMemory{
     #comments = new Map()
@@ -12,8 +12,7 @@ export class DataBaseMemory{
             }
             return true
         })
-    }
-    
+    }    
 
     create(comment){
         const commentId = randomUUID();
